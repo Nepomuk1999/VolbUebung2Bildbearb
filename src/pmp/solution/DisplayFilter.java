@@ -31,7 +31,7 @@ public class DisplayFilter extends ForwardingFilter<PlanarImage> {
         contentPane.add(new JScrollPane(dj), BorderLayout.CENTER);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
+        frame.setSize(600, 400);
         frame.setVisible(true);
         return true;
     }
