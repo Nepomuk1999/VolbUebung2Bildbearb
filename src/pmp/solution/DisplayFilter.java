@@ -2,7 +2,6 @@ package pmp.solution;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.image.renderable.ParameterBlock;
 import java.security.InvalidParameterException;
 
 import javax.media.jai.PlanarImage;
