@@ -1,8 +1,6 @@
 package pmp.solution;
 
-import pmp.filter.DataTransformationFilter1;
 import pmp.filter.DataTransformationFilter2;
-import pmp.filter.ForwardingFilter;
 import pmp.interfaces.Writeable;
 
 import javax.media.jai.PlanarImage;

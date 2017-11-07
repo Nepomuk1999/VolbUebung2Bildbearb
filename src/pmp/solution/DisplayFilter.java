@@ -15,14 +15,25 @@ import pmp.interfaces.Writeable;
 
 public class DisplayFilter extends ForwardingFilter<PlanarImage> {
 
+    String frameTitle;
+
     public DisplayFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
         super(output);
+    }
+
+    public DisplayFilter(Writeable<PlanarImage> output, String windowName) throws InvalidParameterException {
+        super(output);
+        frameTitle = windowName;
     }
 
     @Override
     protected boolean forward(PlanarImage entity) {
         JFrame frame = new JFrame();
-        frame.setTitle("file");
+        if (frameTitle != null) {
+            frame.setTitle(frameTitle);
+        } else {
+            frame.setTitle("frameTitle not spcified");
+        }
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
         //ParameterBlock pb = new ParameterBlock();
