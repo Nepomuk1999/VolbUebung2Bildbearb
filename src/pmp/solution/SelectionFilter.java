@@ -1,6 +1,5 @@
 package pmp.solution;
 
-import pmp.filter.DataTransformationFilter1;
 import pmp.filter.DataTransformationFilter2;
 import pmp.interfaces.Writeable;
 
@@ -16,9 +15,9 @@ public class SelectionFilter extends DataTransformationFilter2<PlanarImage, Plan
 
     @Override
     protected PlanarImage process(PlanarImage entity) {
-        double[] low = {0, 80};
-        double[] high = {0, 0};
-        double[] constants = {255, 255};
+        double[] low = {0};
+        double[] high = {35};
+        double[] constants = {255};
         return entity = ThresholdDescriptor.create(entity, low, high, constants, null);
     }
 
