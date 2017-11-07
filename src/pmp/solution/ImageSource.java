@@ -11,6 +11,7 @@ import pmp.pipes.SimplePipe;
 public class ImageSource extends Source<PlanarImage> {
 
     String ImageSource = "C:/Users/Home/Desktop/Semester 5/Systemarchitektur/Übungen/Aufgabe 2/loetstellen.jpg";
+    boolean b = true;
 
     public ImageSource(SimplePipe<PlanarImage> simplePipe) {
         super(simplePipe);
@@ -18,11 +19,16 @@ public class ImageSource extends Source<PlanarImage> {
 
     @Override
     public PlanarImage read() throws StreamCorruptedException {
-        for (int ki = 1; ki > 0; ki--) {
-            PlanarImage image = JAI.create("fileload", ImageSource);
-            return image;
+        PlanarImage current = null;
+        while (b) {
+            current = JAI.create("fileload", ImageSource);
+            b = false;
         }
-        return null;
+        if (!b) {
+            return current;
+        } else {
+            return null;
+        }
     }
 
 }
