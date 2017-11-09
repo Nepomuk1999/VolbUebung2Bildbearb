@@ -16,8 +16,10 @@ public class RoiFilter extends DataTransformationFilter2<PlanarImage,PlanarImage
     @Override
     protected PlanarImage process(PlanarImage nextVal) {
         PlanarImage image = nextVal;
-        Rectangle rectangle = new Rectangle(0, 34, image.getWidth(), image.getHeight()/4);
+        Rectangle rectangle = new Rectangle(10, 35, image.getWidth(), image.getHeight() / 4);
         nextVal = PlanarImage.wrapRenderedImage(image.getAsBufferedImage(rectangle, image.getColorModel()));
+        nextVal.setProperty("offsetX", 10);
+        nextVal.setProperty("offsetY", 35);
         return nextVal;
     }
 

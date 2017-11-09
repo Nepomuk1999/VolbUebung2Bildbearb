@@ -17,4 +17,8 @@ public class ResultModel {
             balls.add(currentBall);
         }
     }
+
+    public List<Ball> getBalls() {
+        return balls;
+    }
 }
