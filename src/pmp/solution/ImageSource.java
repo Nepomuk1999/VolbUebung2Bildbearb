@@ -6,15 +6,27 @@ import javax.media.jai.JAI;
 import javax.media.jai.PlanarImage;
 
 import pmp.filter.Source;
+import pmp.interfaces.Writeable;
+import pmp.interfaces.Readable;
 import pmp.pipes.SimplePipe;
 
 public class ImageSource extends Source<PlanarImage> {
-
-    String ImageSource = "C:/Users/Jan/Documents/FHV/FHV_Semester5_IBT5/Systemarchitekturen/Uebungen/Uebung2/loetstellen.jpg";
+    String ImageSource;
     boolean b = true;
 
-    public ImageSource(SimplePipe<PlanarImage> simplePipe) {
-        super(simplePipe);
+    //public ImageSource(SimplePipe<PlanarImage> simplePipe) {
+    //    super(simplePipe);
+    //}
+
+    public ImageSource(){
+    }
+
+    public ImageSource(Readable<PlanarImage> output){
+
+    }
+
+    public ImageSource(Writeable<PlanarImage> output){
+        super(output);
     }
 
     @Override
