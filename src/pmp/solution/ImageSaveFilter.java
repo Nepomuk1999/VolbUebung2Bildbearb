@@ -10,7 +10,7 @@ import java.security.InvalidParameterException;
 
 public class ImageSaveFilter extends ForwardingFilter<PlanarImage> {
 
-    String fileOutputPath = "C:/Users/Home/Desktop/Semester 5/Systemarchitektur/Übungen/Aufgabe 2/Output/";
+    String fileOutputPath = "C:/Users/Jan/Documents/FHV/FHV_Semester5_IBT5/Systemarchitekturen/Uebungen/Uebung2/Output/";
 
     public ImageSaveFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
         super(output);
@@ -18,9 +18,10 @@ public class ImageSaveFilter extends ForwardingFilter<PlanarImage> {
 
     @Override
     protected boolean forward(PlanarImage entity) {
-        PlanarImage current = FileStoreDescriptor.create(entity, fileOutputPath + System.currentTimeMillis(),
+        String filename = "" + System.currentTimeMillis();
+        PlanarImage current = FileStoreDescriptor.create(entity, fileOutputPath + filename,
                 "tiff", null, true, null);
-
+        System.out.println("ImageFile: " + filename);
         return true;
     }
 }

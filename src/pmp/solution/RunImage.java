@@ -39,7 +39,6 @@ public class RunImage {
         System.out.print("Enter expected range:");
         range = Integer.parseInt(br.readLine());
 
-
         ImageSink sink = new ImageSink();
         CheckDeviationFilter deviationFilter = new CheckDeviationFilter(new SimplePipe<ResultModel>(sink), coordinates, range);
         CountBallsFilter countBallsFilter = new CountBallsFilter(new SimplePipe<ResultModel>((Writeable<ResultModel>) deviationFilter));
@@ -56,6 +55,8 @@ public class RunImage {
         DisplayFilter df1 = new DisplayFilter(new SimplePipe<PlanarImage>((Writeable<PlanarImage>) rf), "after Source");
         ImageSource source = new ImageSource(new SimplePipe<PlanarImage>((Writeable<PlanarImage>) df1));
 
+        sink.setStartcoordinates(coordinates);
+        sink.setrange(range);
 
         source.run();
     }
