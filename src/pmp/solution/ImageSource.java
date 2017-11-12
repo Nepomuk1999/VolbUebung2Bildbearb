@@ -31,4 +31,7 @@ public class ImageSource extends Source<PlanarImage> {
         }
     }
 
+    public void setImageSource(String imageSource) {
+        ImageSource = imageSource;
+    }
 }

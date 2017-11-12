@@ -11,20 +11,24 @@ import javax.swing.JScrollPane;
 import com.sun.media.jai.widget.DisplayJAI;
 
 import pmp.filter.ForwardingFilter;
+import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 public class DisplayFilter extends ForwardingFilter<PlanarImage> {
 
     String frameTitle;
 
-    public DisplayFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
+
+    public DisplayFilter(Writeable<PlanarImage> output, String windowTitle) throws InvalidParameterException {
         super(output);
+        frameTitle = windowTitle;
     }
 
-    public DisplayFilter(Writeable<PlanarImage> output, String windowName) throws InvalidParameterException {
-        super(output);
-        frameTitle = windowName;
+    public DisplayFilter(Readable<PlanarImage> input, String windowTitle) throws InvalidParameterException {
+        super(input);
+        frameTitle = windowTitle;
     }
+
 
     @Override
     protected boolean forward(PlanarImage entity) {

@@ -4,6 +4,7 @@ import pmp.Model.Ball;
 import pmp.Model.ResultModel;
 import pmp.filter.DataTransformationFilter2;
 import pmp.importclasses.Coordinate;
+import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 import java.security.InvalidParameterException;
@@ -21,8 +22,16 @@ public class CheckDeviationFilter extends DataTransformationFilter2<ResultModel,
         _expectedCentroids = expectedCentroids;
     }
 
+    public CheckDeviationFilter(Readable<ResultModel> input, LinkedList<Coordinate> expectedCentroids, Integer range)
+            throws InvalidParameterException {
+        super(input);
+        _range = range;
+        _expectedCentroids = expectedCentroids;
+    }
+
     @Override
     protected ResultModel process(ResultModel entity) {
+
         for (Ball ball : entity.getBalls()) {
             ball.setIsInTolerance(isInTolerance(ball.getCoordinates()));
         }

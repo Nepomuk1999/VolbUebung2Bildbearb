@@ -4,8 +4,8 @@ import pmp.Model.Ball;
 import pmp.Model.ResultModel;
 import pmp.filter.Sink;
 import pmp.importclasses.Coordinate;
+import pmp.interfaces.Readable;
 
-import javax.media.jai.PlanarImage;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
@@ -22,6 +22,9 @@ public class ImageSink extends Sink<ResultModel> {
     LinkedList<Coordinate> startcoordinates;
     int range;
 
+    public ImageSink(Readable<ResultModel> input) {
+        super(input);
+    }
 
     @Override
     public void write(ResultModel value) throws StreamCorruptedException {

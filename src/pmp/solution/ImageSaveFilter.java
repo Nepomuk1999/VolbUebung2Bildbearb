@@ -1,6 +1,7 @@
 package pmp.solution;
 
 import pmp.filter.ForwardingFilter;
+import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 import javax.media.jai.JAI;
@@ -14,6 +15,10 @@ public class ImageSaveFilter extends ForwardingFilter<PlanarImage> {
 
     public ImageSaveFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
         super(output);
+    }
+
+    public ImageSaveFilter(Readable<PlanarImage> input) throws InvalidParameterException {
+        super(input);
     }
 
     @Override

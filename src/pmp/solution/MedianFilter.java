@@ -1,6 +1,7 @@
 package pmp.solution;
 
 import pmp.filter.DataTransformationFilter2;
+import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 import javax.media.jai.PlanarImage;
@@ -11,8 +12,13 @@ import java.security.InvalidParameterException;
 import static javax.media.jai.operator.MedianFilterDescriptor.MEDIAN_MASK_SQUARE;
 
 public class MedianFilter extends DataTransformationFilter2<PlanarImage, PlanarImage> {
+
     public MedianFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
         super(output);
+    }
+
+    public MedianFilter(Readable<PlanarImage> input) throws InvalidParameterException {
+        super(input);
     }
 
     @Override

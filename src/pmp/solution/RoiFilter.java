@@ -1,6 +1,7 @@
 package pmp.solution;
 
 import pmp.filter.DataTransformationFilter2;
+import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 import javax.media.jai.PlanarImage;
@@ -11,6 +12,10 @@ public class RoiFilter extends DataTransformationFilter2<PlanarImage,PlanarImage
 
     public RoiFilter(Writeable<PlanarImage> output) throws InvalidParameterException {
         super(output);
+    }
+
+    public RoiFilter(Readable<PlanarImage> input) throws InvalidParameterException {
+        super(input);
     }
 
     @Override
