@@ -26,6 +26,10 @@ public class ImageSink extends Sink<ResultModel> {
         super(input);
     }
 
+    public ImageSink() {
+        super();
+    }
+
     @Override
     public void write(ResultModel value) throws StreamCorruptedException {
         if (value != null) {
